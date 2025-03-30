@@ -1,0 +1,31 @@
+{
+    "name": "React Native Expo Environment",
+    "context": ".",
+    "dockerFile": "Dockerfile",
+    "mounts": [
+        "source=${env:USERPROFILE}\\.ssh,target=/root/.ssh,type=bind"
+    ],
+    "remoteEnv": {
+        "USER": "${env:USERNAME}"
+    },
+    // "appPort": [
+    //     "19000:19000",
+    //     "19001:19001",
+    //     "19002:19002"
+    // ],
+    // "workspaceFolder": "/workspace",
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "eamodio.gitlens",
+        "ms-vscode-remote.remote-wsl"
+    ],
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+    },
+    "postStartCommand": "chmod 700 ~/.ssh && chmod 600 /root/.ssh/*"
+
+    // "postCreateCommand": "npm install -g expo-cli && yarn"
+}
